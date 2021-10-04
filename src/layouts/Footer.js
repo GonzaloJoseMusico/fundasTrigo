@@ -15,6 +15,7 @@ const P = styled.p`
     align-items: center;
     color: white;
     position: inherit;
+    
 
     @media (max-width:768px){
         position: relative;
