@@ -18,6 +18,7 @@ const Button = styled.a`
     text-decoration: none;
     cursor: pointer;
     opacity:.7;
+    z-index:110;
     &:hover{
         background-color: white;
         color: green;

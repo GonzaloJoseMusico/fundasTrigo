@@ -1,5 +1,4 @@
 import React from 'react'
-
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom'
 import Inicio from './components/inicio/inicio';
 import Productos from './components/productos/productos';
@@ -10,8 +9,6 @@ import Footer from './layouts/Footer';
 import Whatsapp from './layouts/Whatsapp';
 
 function App() {
-
-  
 
   return (
     

@@ -21,6 +21,8 @@ const Ul = styled.ul`
     
     @media (max-width:768px){
         width:100%;
+        padding: 0;
+       
     }
     li{
         background:#a24104;
@@ -28,7 +30,8 @@ const Ul = styled.ul`
         padding: 1px 2px;
         border-radius: 20px;
         color:#fff;
-        margin: 0 auto;
+        margin: 1rem auto;
+        
     }
 `;
 
@@ -75,12 +78,14 @@ const Productos = () => {
     ]
        
 )
+    const [mostrarproductos, setMostrarproductos] = useState(false)
+
     const [carrito, setCarrito] = useState([]);
     //mostrar Producto
     const seleccionarProducto = id => {
         const producto = productos.filter(producto => producto.id === id);
-        
         setCarrito(producto);
+        setMostrarproductos(true);
     }
     
     return ( 
@@ -92,7 +97,6 @@ const Productos = () => {
                     <li><Button 
                     onClick={ () => seleccionarProducto(1) }
                     color="inherit"
-                    
                     >Bombo</Button></li>
                     <li><Button 
                     onClick={ () => seleccionarProducto( 2) }

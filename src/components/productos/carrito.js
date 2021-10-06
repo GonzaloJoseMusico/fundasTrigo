@@ -26,6 +26,7 @@ const Divdescrip = styled.div`
     color: #915804;
     font-size: 1rem;
     width: auto;
+    height:150px;
     margin: 0 auto;
 `;
 

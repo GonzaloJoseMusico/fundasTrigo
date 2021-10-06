@@ -3,7 +3,7 @@ import { IconButton} from '@material-ui/core';
 import { Facebook, Instagram } from '@material-ui/icons';
 import styled from 'styled-components';
 
-const P = styled.p`
+const Foot = styled.footer`
     width:100%;
     height:35px;
     font-size: 0.8rem;
@@ -14,23 +14,19 @@ const P = styled.p`
     margin: 0 auto;
     align-items: center;
     color: white;
-    position: inherit;
-    
-
-    @media (max-width:768px){
-        position: relative;
-        bottom:0;
-    }
+    position: absolute;
+    bottom:0;
+   
     
 `;
 
 const Footer = () => {
     return (
-        <footer>
-            <P>Todos los derechos reservados - Fundas Trigo
+        <Foot>
+            <p>Todos los derechos reservados - Fundas Trigo
             <IconButton color="inherit" href="https://www.facebook.com/TRIGOFundas" target="_blank"><Facebook /></IconButton>
-            <IconButton color="inherit" href="https://www.instagram.com/fundastrigocba/" target="_blank"><Instagram /></IconButton></P>
-        </footer>
+            <IconButton color="inherit" href="https://www.instagram.com/fundastrigocba/" target="_blank"><Instagram /></IconButton></p>
+        </Foot>
     )
 }
 
