@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 import styled from 'styled-components';
-import { Button} from '@material-ui/core';
+import { Button, useMediaQuery } from '@material-ui/core';
 import {Grid} from '@material-ui/core';
 import Carrito from './carrito';
 import bombo from '../../img/galeria/bombo.webp' 
@@ -78,19 +78,20 @@ const Productos = () => {
     ]
        
 )
-    const [mostrarproductos, setMostrarproductos] = useState(false)
-
+    
     const [carrito, setCarrito] = useState([]);
     //mostrar Producto
     const seleccionarProducto = id => {
         const producto = productos.filter(producto => producto.id === id);
         setCarrito(producto);
-        setMostrarproductos(true);
     }
+
+    
     
     return ( 
 
         <>
+        
         <Grid container>
             <Grid item xs={12} sm={4}>   
                 <Ul>
@@ -123,12 +124,13 @@ const Productos = () => {
             <Grid item sm={8}> 
                 <ul>
                     <Carrito 
-                        key={carrito.id}
+                        key={productos.id}
                         carrito={carrito}
                     />
                 </ul>
             </Grid>
         </Grid>
+        
         </>
     );
 }

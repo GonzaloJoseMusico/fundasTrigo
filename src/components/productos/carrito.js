@@ -35,11 +35,13 @@ const Divdescrip = styled.div`
 const Carrito = ({carrito}) => (
     <div>
         {carrito.map(carrito => (
-            <>
-            <Divname>{carrito.nombre}</Divname>
+            
+            <div key={carrito.id}>
+            
+            <Divname >{carrito.nombre}</Divname>
             <Divfoto> <img src={carrito.img}></img> </Divfoto>
             <Divdescrip> {carrito.descripcion} </Divdescrip>
-            </>
+            </div>
        ))}  
        </div>
 )
