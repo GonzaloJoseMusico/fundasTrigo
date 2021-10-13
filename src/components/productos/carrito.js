@@ -26,24 +26,39 @@ const Divdescrip = styled.div`
     color: #915804;
     font-size: 1rem;
     width: auto;
-    height:150px;
     margin: 0 auto;
+    
+    list-style:none;
+    height:70px;
+`;
+const Divdescrip1 = styled.div`
+    color: #915804;
+    font-size: 1rem;
+    width: auto;
+    margin: 0 auto;
+    
+    list-style:none;
+    height:130px;
+`;
+const Divdescrip2 = styled.div`
+    color: #915804;
+    font-size: 1rem;
+    width: auto;
+    margin: 0 auto;
+    list-style:none;
+    height:130px;
 `;
 
 
-
-const Carrito = ({carrito}) => (
+const Carrito = ({producto}) => (
     <div>
-        {carrito.map(carrito => (
-            
-            <div key={carrito.id}>
-            
-            <Divname >{carrito.nombre}</Divname>
-            <Divfoto> <img src={carrito.img}></img> </Divfoto>
-            <Divdescrip> {carrito.descripcion} </Divdescrip>
-            </div>
-       ))}  
-       </div>
+        <Divname >{producto.nombre}</Divname>
+        <Divfoto> <img src={producto.img}></img> </Divfoto>
+        <Divdescrip> {producto.descripcion} </Divdescrip>
+        <Divdescrip1>{producto.materiales.map(material=>(<li>{material}</li>))}</Divdescrip1>
+        <Divdescrip2>{producto.opcionales.map(opcional=>(<li>{opcional}</li>))}</Divdescrip2>
+  
+    </div>
 )
 
 

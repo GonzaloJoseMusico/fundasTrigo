@@ -14,7 +14,7 @@ const Foot = styled.footer`
     margin: 0 auto;
     align-items: center;
     color: white;
-    position: absolute;
+    position: relative;
     bottom:0;
    
     
