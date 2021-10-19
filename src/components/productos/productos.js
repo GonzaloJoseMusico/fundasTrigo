@@ -68,7 +68,7 @@ const Productos = () => {
         {
             id:2,
             nombre: "Caja",
-            descripcion: "Las fundas estan mas buenas que tu hermana, vos llevala que no te vas a clavar, aparte el loco que las hace es un capo, nada mas se tarda en mandarme la data el culiao pero bue...",
+            descripcion: "Está construida con material importado de buena calidad. Con tiras de mochila muy cómodas para viajar y tener nuestro instrumento protegido de golpes e impermeable.",
             materiales: ["Materiales:","Cordura importada", "Polietileno 10mm", "Friselina 120grs", "Cinta de mochila de 3", "Cierre y deslizador super grande"],
             opcionales: ["Opcionales:", "Con tiras de mochila", "Con bolsillo", "Doble polietileno"],
             img: caja
