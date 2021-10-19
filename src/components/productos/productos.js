@@ -1,7 +1,6 @@
 import React, {useState} from 'react'
 import styled from 'styled-components';
-import { Button, useMediaQuery } from '@material-ui/core';
-import {Grid} from '@material-ui/core';
+import { Button, Modal } from '@material-ui/core';
 import Carrito from './carrito';
 import bombo from '../../img/galeria/bombo.jpg' 
 import flauta from '../../img/galeria/flauta.webp'
@@ -10,16 +9,32 @@ import teclado from '../../img/galeria/teclado.jpg'
 import morral from '../../img/galeria/morral.webp'
 import matero from '../../img/galeria/matero.jpg'
 import caja from '../../img/galeria/caja.jpg' 
+
 const ProductButton = styled(Button)`
 && {
   background-color: ${props=> props.active ? "#e15205 " : "#a24104"};
   color: ${props=> props.active ? "black" : "white"};
 }
 `
+const Popup = styled.div`
+    position: relative;
+    max-width:500px;
+    background-color: rgb(216, 216, 216);
+    border: 2px solid #a24104;
+    border-radius: 20px;
+    box-shadow: 10px 5px 5px black;
+    padding: 16px 32px 24px;
+    top: 50%;
+    left: 50%;
+    transform:translate(-50%, -50%);
+    max-height:85%;
+    overflow:auto;
+    ::-webkit-scrollbar {display: none;}
+`;
 
 const Ul = styled.ul`
     list-style:none;
-    width: 300px;
+    width: 100%;
     display:flex;
     flex-flow:column nowrap;
     justify-content:space-around;
@@ -44,7 +59,7 @@ const Productos = () => {
     
         {
             id:1,
-            nombre: "Funda de Bombo",
+            nombre: "Bombo",
             descripcion: "Está construida con material importado de buena calidad. Con tiras de mochila muy cómodas para viajar y tener nuestro instrumento protegido de golpes e impermeable.",
             materiales: ["Materiales:","Cordura importada", "Polietileno 10mm", "Friselina 120grs", "Cinta de mochila de 3", "Cierre y deslizador super grande"],
             opcionales: ["Opcionales:", "Con tiras de mochila", "Con bolsillo", "Doble polietileno"],
@@ -52,7 +67,7 @@ const Productos = () => {
         },
         {
             id:2,
-            nombre: "Funda de Caja",
+            nombre: "Caja",
             descripcion: "Las fundas estan mas buenas que tu hermana, vos llevala que no te vas a clavar, aparte el loco que las hace es un capo, nada mas se tarda en mandarme la data el culiao pero bue...",
             materiales: ["Materiales:","Cordura importada", "Polietileno 10mm", "Friselina 120grs", "Cinta de mochila de 3", "Cierre y deslizador super grande"],
             opcionales: ["Opcionales:", "Con tiras de mochila", "Con bolsillo", "Doble polietileno"],
@@ -60,24 +75,24 @@ const Productos = () => {
         },
         {
             id:3,
-            nombre: "Funda para Flautas y Vientos",
-            descripcion: "Las fundas estan mas buenas que tu hermana, vos llevala que no te vas a clavar, aparte el loco que las hace es un capo, nada mas se tarda en mandarme la data el culiao pero bue...",
+            nombre: "Flautas y Vientos",
+            descripcion: "Está construida con material importado de buena calidad. Con tiras de mochila muy cómodas para viajar y tener nuestro instrumento protegido de golpes e impermeable.",
             materiales: ["Materiales:","Cordura importada", "Polietileno 10mm", "Friselina 120grs", "Cinta de mochila de 3", "Cierre y deslizador super grande"],
             opcionales: ["Opcionales:", "Con tiras de mochila", "Con bolsillo", "Doble polietileno"],
             img: flauta
         },
         {
             id:4,
-            nombre: "Funda para Tumbadoras",
-            descripcion: "Las fundas estan mas buenas que tu hermana, vos llevala que no te vas a clavar, aparte el loco que las hace es un capo, nada mas se tarda en mandarme la data el culiao pero bue...",
+            nombre: "Tumbadoras",
+            descripcion: "Está construida con material importado de buena calidad. Con tiras de mochila muy cómodas para viajar y tener nuestro instrumento protegido de golpes e impermeable.",
             materiales: ["Materiales:","Cordura importada", "Polietileno 10mm", "Friselina 120grs", "Cinta de mochila de 3", "Cierre y deslizador super grande"],
             opcionales: ["Opcionales:", "Con tiras de mochila", "Con bolsillo", "Doble polietileno"],
             img: tumbadoras
         },
         {
             id:5,
-            nombre: "Funda para Teclados",
-            descripcion: "Las fundas estan mas buenas que tu hermana, vos llevala que no te vas a clavar, aparte el loco que las hace es un capo, nada mas se tarda en mandarme la data el culiao pero bue...",
+            nombre: "Teclados",
+            descripcion:"Está construida con material importado de buena calidad. Con tiras de mochila muy cómodas para viajar y tener nuestro instrumento protegido de golpes e impermeable.",
             materiales: ["Materiales:","Cordura importada", "Polietileno 10mm", "Friselina 120grs", "Cinta de mochila de 3", "Cierre y deslizador super grande"],
             opcionales: ["Opcionales:", "Con tiras de mochila", "Con bolsillo", "Doble polietileno"],
             img: teclado
@@ -85,7 +100,7 @@ const Productos = () => {
         {
             id:6,
             nombre: "Morral",
-            descripcion: "Las fundas estan mas buenas que tu hermana, vos llevala que no te vas a clavar, aparte el loco que las hace es un capo, nada mas se tarda en mandarme la data el culiao pero bue...",
+            descripcion: "Está construida con material importado de buena calidad. Con tiras de mochila muy cómodas para viajar y tener nuestro instrumento protegido de golpes e impermeable.",
             materiales: ["Materiales:","Cordura importada", "Polietileno 10mm", "Friselina 120grs", "Cinta de mochila de 3", "Cierre y deslizador super grande"],
             opcionales: ["Opcionales:", "Con tiras de mochila", "Con bolsillo", "Doble polietileno"],
             img: morral
@@ -93,7 +108,7 @@ const Productos = () => {
         {
             id:7,
             nombre: "Bolso Matero",
-            descripcion: "Las fundas estan mas buenas que tu hermana, vos llevala que no te vas a clavar, aparte el loco que las hace es un capo, nada mas se tarda en mandarme la data el culiao pero bue...",
+            descripcion: "Está construida con material importado de buena calidad. Con tiras de mochila muy cómodas para viajar y tener nuestro instrumento protegido de golpes e impermeable.",
             materiales: ["Materiales:","Cordura importada", "Polietileno 10mm", "Friselina 120grs", "Cinta de mochila de 3", "Cierre y deslizador super grande"],
             opcionales: ["Opcionales:", "Con tiras de mochila", "Con bolsillo", "Doble polietileno"],
             img: matero
@@ -107,42 +122,47 @@ const Productos = () => {
     const seleccionarProducto = id => {
         setCarrito(id);
     }
+    const [modal, setModal] = useState(false);
 
-    
-    
+    const abrirCerrarModal = () =>{
+        setModal(!modal);
+    }
     return ( 
 
         <>
         
-        <Grid container>
-            <Grid item xs={12} sm={4}>   
-                <Ul>
-                    {
-                        productos.map(producto => {
-                            return (
-                                <li key={producto.id}>
-                                    <ProductButton 
-                                        active={producto.id === carrito}
-                                        onClick={ () => seleccionarProducto(producto.id) }
-                                        color="inherit"
-                                    >{producto.nombre}</ProductButton>            
-                                </li>
-                            )
-                        })
-                    }
-                </Ul>
-            </Grid>
-            <Grid item sm={8}> 
-                <ul>
+            <Ul>
+                {
+                    productos.map(producto => {
+                        return (
+                            <li key={producto.id}>
+                                <ProductButton 
+                                    active={producto.id === carrito}
+                                    onClick={ () => {
+                                        abrirCerrarModal()
+                                        seleccionarProducto(producto.id)
+                                        } }
+                                    color="inherit"
+                                >{producto.nombre}</ProductButton>            
+                            </li>
+                        )
+                    })
+                }
+            </Ul>
+        
+            <Modal
+            open={modal}
+            onClose={abrirCerrarModal}> 
+                <Popup
+                onClick={()=>abrirCerrarModal()}
+                >
                     <Carrito 
-                        
                         producto={productos.find(prod => prod.id === carrito )}
                     />
-                </ul>
-            </Grid>
-        </Grid>
-        
+                </Popup>
+            </Modal>      
         </>
+        
     );
 }
  

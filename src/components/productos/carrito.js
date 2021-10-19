@@ -25,16 +25,16 @@ const Divfoto = styled.div`
 const Divdescrip = styled.div`
     color: #915804;
     font-size: 1rem;
-    width: auto;
+    width: 80%;
     margin: 0 auto;
     
     list-style:none;
-    height:70px;
+    height:100px;
 `;
 const Divdescrip1 = styled.div`
     color: #915804;
     font-size: 1rem;
-    width: auto;
+    width: 80%;
     margin: 0 auto;
     
     list-style:none;
@@ -43,7 +43,7 @@ const Divdescrip1 = styled.div`
 const Divdescrip2 = styled.div`
     color: #915804;
     font-size: 1rem;
-    width: auto;
+    width: 80%;
     margin: 0 auto;
     list-style:none;
     height:130px;
@@ -53,10 +53,11 @@ const Divdescrip2 = styled.div`
 const Carrito = ({producto}) => (
     <div>
         <Divname >{producto.nombre}</Divname>
-        <Divfoto> <img src={producto.img}></img> </Divfoto>
+        <Divfoto> <img src={producto.img} alt="foto"></img> </Divfoto>
         <Divdescrip> {producto.descripcion} </Divdescrip>
-        <Divdescrip1>{producto.materiales.map(material=>(<li>{material}</li>))}</Divdescrip1>
+        <Divdescrip1>{producto.materiales.map(material=>(<li> {material}</li>))}</Divdescrip1>
         <Divdescrip2>{producto.opcionales.map(opcional=>(<li>{opcional}</li>))}</Divdescrip2>
+        
   
     </div>
 )
