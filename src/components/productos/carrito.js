@@ -29,7 +29,7 @@ const Divdescrip = styled.div`
     margin: 0 auto;
     
     list-style:none;
-    height:100px;
+    height:auto;
 `;
 const Divdescrip1 = styled.div`
     color: #915804;

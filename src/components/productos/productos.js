@@ -10,12 +10,13 @@ import morral from '../../img/galeria/morral.webp'
 import matero from '../../img/galeria/matero.jpg'
 import caja from '../../img/galeria/caja.jpg' 
 
-const ProductButton = styled(Button)`
-&& {
-  background-color: ${props=> props.active ? "#e15205 " : "#a24104"};
-  color: ${props=> props.active ? "black" : "white"};
-}
-`
+
+const Button1 = styled(Button)`
+    background-color:#915804 !important;
+    color: white !important;
+`;
+
+
 const Popup = styled.div`
     position: relative;
     max-width:500px;
@@ -136,14 +137,14 @@ const Productos = () => {
                     productos.map(producto => {
                         return (
                             <li key={producto.id}>
-                                <ProductButton 
-                                    active={producto.id === carrito}
+                                <Button1 
                                     onClick={ () => {
                                         abrirCerrarModal()
                                         seleccionarProducto(producto.id)
                                         } }
                                     color="inherit"
-                                >{producto.nombre}</ProductButton>            
+                                    
+                                >{producto.nombre}</Button1>            
                             </li>
                         )
                     })
